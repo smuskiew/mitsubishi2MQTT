@@ -16,7 +16,7 @@
 
 /*#define MY_LANGUAGE zh-CN // define your language*/
 
-const PROGMEM char* m2mqtt_version = "2023.1.0";
+const PROGMEM char* m2mqtt_version = "2023.1.0.1";
 
 //Define global variables for files
 #ifdef ESP32
@@ -39,7 +39,7 @@ const PROGMEM  uint8_t blueLedPin = LED_BUILTIN; // Onboard LED = digital pin 2 
 const PROGMEM  uint8_t redLedPin = 0;
 
 // Define global variables for network
-const PROGMEM char* hostnamePrefix = "HVAC_";
+const PROGMEM char* hostnamePrefix = "ESP_";
 const PROGMEM uint32_t WIFI_RETRY_INTERVAL_MS = 300000;
 unsigned long wifi_timeout;
 bool wifi_config_exists;
@@ -95,8 +95,8 @@ bool _debugModeLogs = false;
 bool _debugModePckts = false;
 
 // Customization
-uint8_t min_temp                    = 16; // Minimum temperature, in your selected unit, check value from heatpump remote control
-uint8_t max_temp                    = 31; // Maximum temperature, in your selected unit, check value from heatpump remote control
+uint8_t min_temp                    = 61; // Minimum temperature, in your selected unit, check value from heatpump remote control
+uint8_t max_temp                    = 88; // Maximum temperature, in your selected unit, check value from heatpump remote control
 String temp_step                   = "1"; // Temperature setting step, check value from heatpump remote control
 
 // sketch settings
@@ -108,6 +108,6 @@ const PROGMEM uint32_t HP_MAX_RETRIES = 10; // Double the interval between retri
 // Default values give a final retry interval of 1000ms * 2^10, which is 1024 seconds, about 17 minutes. 
 
 // temp settings
-bool useFahrenheit = false;
+bool useFahrenheit = true;
 // support heat mode settings, some model do not support heat mode
 bool supportHeatMode = true;
