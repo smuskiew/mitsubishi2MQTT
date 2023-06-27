@@ -1653,6 +1653,8 @@ bool connectWifi() {
   WiFi.config(INADDR_NONE, INADDR_NONE, INADDR_NONE);
 #endif
   WiFi.begin(ap_ssid.c_str(), ap_pwd.c_str());
+  // workaround for https://github.com/esp8266/Arduino/issues/8412 (and other DHCP issues with Asus routers)
+  WiFi.setPhyMode(WIFI_PHY_MODE_11G);
   // Serial.println("Connecting to " + ap_ssid);
   wifi_timeout = millis() + 30000;
   while (WiFi.status() != WL_CONNECTED && millis() < wifi_timeout) {
